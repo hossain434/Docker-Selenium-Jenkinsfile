@@ -1,4 +1,4 @@
-package test.java.com.testautomationguru.container.test;
+package com.testautomationguru.container.test;
 
 
 import java.net.MalformedURLException;
