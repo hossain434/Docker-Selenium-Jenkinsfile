@@ -9,7 +9,7 @@ pipeline {
     stages {    
         stage('Build Jar') {
             steps {
-                bat 'mvn clean install package -DskipTests'
+                bat 'mvn clean package -DskipTests'
             }
         }
         stage('Build Image') {
