@@ -58,6 +58,9 @@
 							<classpathPrefix>libs/</classpathPrefix>
 						</manifest>
 					</archive>
+					<repository>arif/test</repository>
+					<tag>test</tag>
+				
 				</configuration>
 			</plugin>
 			<plugin>
