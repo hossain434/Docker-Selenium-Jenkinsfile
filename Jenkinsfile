@@ -1,20 +1,19 @@
 pipeline {
-    agent any
-            tools { 
-        maven 'Maven 3.3.9' 
-        jdk 'jdk8' 
-    
+    agent {
+        node {
+            label 'docker' && 'maven'
+        }
     }
     stages {    
         stage('Build Jar') {
             steps {
-                bat 'mvn clean package - DskipTests'
+                bat 'mvn clean package -DskipTests'
             }
         }
         stage('Build Image') {
             steps {
                 script {
-                      // vinsdocker/containertest => organization/application  it could be anything
+                      // vinsdocker/containertest => organization/application - it could be anything
                       app = docker.build("vinsdocker/containertest")
                 }
             }
