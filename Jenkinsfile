@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                script {
+                bat script {
                       // vinsdocker/containertest => organization/application - it could be anything
                       app = docker.build("arif/test")
                 }
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Push Image') {
             steps {
-                script {
+                bat script {
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                         app.push("${BUILD_NUMBER}")
                         app.push("latest")
