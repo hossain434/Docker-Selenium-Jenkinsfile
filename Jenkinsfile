@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                       // vinsdocker/containertest => organization/application - it could be anything
-                   bat   app = docker.build("arif/test")
+                      app = bat docker.build("arif/test")
                 }
             }
         }
