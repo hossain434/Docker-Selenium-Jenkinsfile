@@ -14,9 +14,9 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                bat script {
+                script {
                       // vinsdocker/containertest => organization/application - it could be anything
-                      app = docker.build("arif/test")
+                   bat   app = docker.build("arif/test")
                 }
             }
         }
