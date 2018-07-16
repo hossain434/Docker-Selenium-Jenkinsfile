@@ -12,15 +12,7 @@ pipeline {
                 bat 'mvn clean package -DskipTests'
             }
         }
-        stage('Build Image') {
-            steps {
-                script {
-                    
-                      // vinsdocker/containertest => organization/application - it could be anything
-                      def app = docker.build("arif/test")
-                }
-            }
-        }
+
         stage('Push Image') {
             steps {
                 script {
