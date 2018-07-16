@@ -1,5 +1,5 @@
 pipeline {
-    def app
+    
     agent any
             tools { 
         maven 'Maven 3.3.9' 
@@ -15,6 +15,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
+                    def app
                       // vinsdocker/containertest => organization/application - it could be anything
                       app = docker.build("vinsdocker/containertest")
                 }
