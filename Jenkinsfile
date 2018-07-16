@@ -15,6 +15,7 @@ pipeline {
         }
         
     stage('Build image') {
+        def app
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
@@ -22,7 +23,7 @@ pipeline {
     }
 
         stage('Push Image') {
-
+def app
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                         app.push("${BUILD_NUMBER}")
                         app.push("latest")
