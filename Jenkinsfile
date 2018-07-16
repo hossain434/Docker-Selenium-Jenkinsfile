@@ -1,5 +1,5 @@
 pipeline {
-    
+    def app
     agent any
             tools { 
         maven 'Maven 3.3.9' 
@@ -12,10 +12,16 @@ pipeline {
                 bat 'mvn clean package -DskipTests'
             }
         }
+        
+    stage('Build image') {
+        /* This builds the actual image; synonymous to
+         * docker build on the command line */
+
+        app = docker.build("arif/test")
+    }
 
         stage('Push Image') {
-            steps {
-                script {
+
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                         app.push("${BUILD_NUMBER}")
                         app.push("latest")
@@ -23,5 +29,3 @@ pipeline {
                 }
             }
         }        
-    }
-}
