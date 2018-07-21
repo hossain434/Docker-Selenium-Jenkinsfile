@@ -1,5 +1,5 @@
 pipeline {
-    def app
+  
     agent {
         node {
             label 'docker' && 'maven'
@@ -20,6 +20,7 @@ pipeline {
             steps {
                 bat {
                       // grid/test => organization/application - it could be anything
+                      def app
                       app = docker.build("grid/test")
                 }
             }
