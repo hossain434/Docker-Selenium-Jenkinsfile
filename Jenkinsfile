@@ -7,7 +7,8 @@ pipeline {
     stages {    
         stage('Build Jar') {
             steps {
-                bat 'mvn clean package -DskipTests'
+               def mvnhome= tool name: 'maven', type: 'maven'
+                bat "%{mvnhome}/bin/mvn clean package -DskipTests"
             }
         }
         stage('Build Image') {
