@@ -18,9 +18,9 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                bat {
+                script bat {
                       // grid/test => organization/application - it could be anything
-                      def app
+                      
                       app = docker.build("grid/test")
                 }
             }
