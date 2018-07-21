@@ -4,11 +4,15 @@ pipeline {
             label 'docker' && 'maven'
         }
     }
+                tools { 
+        maven 'Maven 3.3.9' 
+        jdk 'jdk8' 
+    
+    }
     stages {    
         stage('Build Jar') {
             steps {
-               def mvnhome = tool name: 'maven', type: 'maven'
-                bat "${mvnhome}/bin/mvn clean package -DskipTests"
+                bat 'mvn clean package -DskipTests'
             }
         }
         stage('Build Image') {
