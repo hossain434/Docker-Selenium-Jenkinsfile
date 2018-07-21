@@ -17,16 +17,5 @@ pipeline {
                 bat 'mvn clean package -DskipTests'
             }
         }
-        stage('Build Image') {
-            steps {
-                script {
-                      // grid/test => organization/application - it could be anything
-                      
-                    def  app = docker.build("grid/test")
-                  app.push()
-                }
-            }
-        }
-        
     }
 }
