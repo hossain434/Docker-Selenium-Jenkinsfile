@@ -6,7 +6,7 @@ WORKDIR /usr/share/tag
 # Add the project jar & copy dependencies
 ADD  target/container-test.jar container-test.jar
 ADD  target/libs libs
-ADD test-output test-output
+ADD target test-output
 
 # Add the suite xmls
 ADD suite/order-module.xml order-module.xml
