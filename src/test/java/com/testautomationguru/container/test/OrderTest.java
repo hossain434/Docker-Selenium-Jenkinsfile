@@ -36,16 +36,7 @@ public class OrderTest extends BaseTest{
     public static Object[][] credentials() {
           return new Object[][] {
               { "Accessories" },
-              { "iMacs" },
-              { "iPads" },
-              { "iPhones" },
-              { "iPods" }, 
-              { "MacBooks" },
-              { "Accessories" },
-              { "iMacs" },
-              { "iPads" },
-              { "iPhones" },
-              { "iPods" }, 
+              { "iMacs" }, 
               { "MacBooks" }              
           };
     }
