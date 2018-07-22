@@ -31,13 +31,6 @@ public class SearchTest extends BaseTest {
           return new Object[][] {
               { "test automation guru" },
               { "selenium webdriver" },
-              { "dockerized selenium grid" },
-              { "test automation blog" },
-              { "jmeter docker" } ,
-              { "test automation guru" },
-              { "selenium webdriver" },
-              { "dockerized selenium grid" },
-              { "test automation blog" },
               { "jmeter docker" }               
           };
     }
