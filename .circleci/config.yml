@@ -46,3 +46,5 @@ jobs:
   workflows:
   version: 2
   build-and-test:
+      jobs:
+      - Docker-Selenium-Jenkinsfile
