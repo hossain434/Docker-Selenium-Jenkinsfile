@@ -1,16 +1,48 @@
-jobs:
-  build:
+version: 2.0
+
+references:
+  
+  container_config: &container_config
     docker:
-      - image: buildpack-deps:trusty
-    environment:
-      FOO: bar
-    parallelism: 3
-    resource_class: large
-    working_directory: ~/my-app
-    branches:
-      only:
-        - master
-        - /rc-.*/
+      - image: spnike/cosjava:v1
+    working_directory: /home/circleci/circleci-demo-workflows
+
+  workspace_root: &workspace_root
+    /home/circleci
+
+  attach_workspace: &attach_workspace   
+      attach_workspace:
+          at: *workspace_root
+jobs:
+  Docker-Selenium-Jenkinsfile:
+    <<: *container_config
     steps:
-      - run: make test
-      - run: make
+      - run: 
+            name: check_mvn_version
+            command: mvn --version
+      - run: 
+            name: check_git_version
+            command: git --version 
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - source-v1-{{ .Branch }}-
+            - source-v1-
+      - checkout
+      - save_cache:
+          key: source-v1-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - ".git" 
+      - restore_cache:
+          key: project-{{ checksum "pom.xml" }}
+      - run: mvn -s ./artifactory/settings.xml dependency:go-offline
+      - save_cache:
+          paths:
+            - /home/circleci/circleci-demo-workflows/.m2
+          key: project-{{ checksum "pom.xml" }}   
+      - persist_to_workspace:
+          root: /home/circleci/
+          paths: 
+  workflows:
+  version: 2
+  build-and-test:
