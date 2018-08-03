@@ -16,6 +16,6 @@ ADD suite/search-module.xml search-module.xml
 # Expects below ennvironment variables
 # BROWSER = chrome / firefox
 # MODULE  = order-module / search-module
-# SELENIUM_HUB = selenium hub hostname / ipaddress
+# SELENIUM_HUB = selenium hub hostname / ipaddress 
 
 ENTRYPOINT java -cp container-test.jar:libs/* -DseleniumHubHost=$SELENIUM_HUB -Dbrowser=$BROWSER org.testng.TestNG $MODULE
