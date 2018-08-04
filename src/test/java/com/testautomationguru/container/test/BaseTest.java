@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeTest;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -16,7 +16,7 @@ public class BaseTest {
     
     @BeforeTest
     public void setUp() throws MalformedURLException {
-        
+  /*      
         DesiredCapabilities dc = DesiredCapabilities.chrome();
 
         if (System.getProperty("browser").equals("firefox"))
@@ -25,6 +25,10 @@ public class BaseTest {
         String host = System.getProperty("seleniumHubHost");
         
         driver = new RemoteWebDriver(new URL("http://" + host + ":4444/wd/hub"), dc);
+    */
+    
+      // To declare and initialize HtmlUnitDriver
+     WebDriver driver = new HtmlUnitDriver();
         
     }
 
