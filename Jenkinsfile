@@ -39,8 +39,8 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                      // vinsdocker/containertest => organization/application - it could be anything
-                      app = docker.build("vinsdocker/containertest")
+                      // arif/test => organization/application - it could be anything
+                      app = docker.build("arif/test")
                 }
             }
         }       
