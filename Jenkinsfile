@@ -30,6 +30,11 @@ pipeline {
             label 'docker' && 'maven'
         }
     }
+                      tools { 
+        maven 'maven' 
+        jdk 'jdk'         
+    
+    }
     stages {    
         stage('Build Jar') {
             steps {
