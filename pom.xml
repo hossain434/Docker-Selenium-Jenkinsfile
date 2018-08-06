@@ -78,10 +78,12 @@
 						</goals>
 					</execution>
 				</executions>
+				/*
 				<configuration>
 					<repository>sel/grid</repository>
 					<tag>latest</tag>
 				</configuration>
+				*/
 			</plugin>
 		</plugins>
 	</build>
