@@ -1,23 +1,24 @@
-
 pipeline {
-  
     agent {
-        node {
-            label 'docker' && 'maven'
-        }
-    }
                 tools { 
         maven 'maven' 
-        jdk 'jdk'         
-    
+        jdk 'jdk'  
     }
+	}
     stages {    
         stage('Build Jar') {
             steps {
-              bat 'mvn clean package  -DskipTests'
-              //sh 'mvn clean package  -DskipTests'
+                sh 'mvn clean package -DskipTests'
             }
         }
+        stage('Build Image') {
+            steps {
+                script {
+                     docker.build("arif/test")
+                }
+            }
+        }
+       
     }
 }
 
